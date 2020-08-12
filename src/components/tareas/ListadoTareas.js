@@ -15,7 +15,7 @@ const ListadoTareas = () => {
 
   return (
     <Fragment>
-      <h2>Proyecto: TIenda Virtual</h2>
+      <h2>Proyecto: Tienda Virtual</h2>
       <ul className="listado-tareas">
         {tareasProyecto.length === 0
           ?
@@ -28,6 +28,14 @@ const ListadoTareas = () => {
           ))
         }
       </ul>
+
+      <button
+        type="button"
+        className="btn btn-eliminar"
+        >
+          Eliminar Proyecto &times;
+        </button>
+
     </Fragment>
 
   )
