@@ -1,6 +1,19 @@
-import React, {Fragment} from 'react'
+import React, {Fragment,useContext} from 'react'
+import proyectoContext from '../../context/proyectos/proyectoContext';
 
-const FormTarea = ({proyecto}) => {
+const FormTarea = () => {
+
+  // Extraer si un proyecto esta activo
+  const proyectosContext = useContext(proyectoContext)
+  const {proyecto} = proyectosContext;
+
+  // si no hay proyecto selecionado
+  if (!proyecto) {
+    return null
+  }
+
+  // proyecto viene como un areglo. Extraigo la pocision uno y la nombro proyectoActual
+  const [proyectoActual] = proyecto;
 
   return (
     <div className="formulario">
