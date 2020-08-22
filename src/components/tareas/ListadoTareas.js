@@ -1,6 +1,7 @@
 import React, {Fragment, useContext} from 'react'
 import Tarea from './Tarea'
 import proyectoContext from '../../context/proyectos/proyectoContext';
+import tareaContext from '../../context/tareas/tareaContext';
 
 
 const ListadoTareas = () => {
@@ -8,6 +9,11 @@ const ListadoTareas = () => {
   // Obtener el state de proyecto
   const proyectosContext = useContext(proyectoContext)
   const {proyecto, eliminarProyecto} = proyectosContext;
+
+  // obtener las tareas del proyecto
+  const tareasContext = useContext(tareaContext);
+  const {tareasProyecto} = tareasContext;
+
 
   // si no hay proyecto selecionado
   if (!proyecto) {
@@ -17,7 +23,7 @@ const ListadoTareas = () => {
   // proyecto viene como un areglo. Extraigo la pocision uno y la nombro proyectoActual
   const [proyectoActual] = proyecto;
 
-   const tareasProyecto = [];
+  
 
   // Elimina un proyecto
   const onClickEliminar = () => {
