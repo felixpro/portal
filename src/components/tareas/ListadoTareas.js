@@ -17,12 +17,7 @@ const ListadoTareas = () => {
   // proyecto viene como un areglo. Extraigo la pocision uno y la nombro proyectoActual
   const [proyectoActual] = proyecto;
 
-   const tareasProyecto = [
-     {nombre: 'Elegir plataforma', estado: true},
-     {nombre: 'Elegir Colores', estado: false},
-     {nombre: 'Elegir Pltaforma de pago', estado: false},
-     {nombre: 'Elegir Hosting', estado: false},
-   ];
+   const tareasProyecto = [];
 
   // Elimina un proyecto
   const onClickEliminar = () => {
