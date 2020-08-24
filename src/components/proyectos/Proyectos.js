@@ -7,16 +7,13 @@ import ListadoTareas from '../tareas/ListadoTareas';
 const Proyectos = () => {
   return (
     <div className="contenedor-app">
-
       <Sidebar/>
-
-
       <div className="seccion-principal">
       <Barra/>
         <main>
         <FormTarea/>
           <div className="contenedor-tareas">
-          <ListadoTareas/>
+          <ListadoTareas />
           </div>
         </main>
       </div>

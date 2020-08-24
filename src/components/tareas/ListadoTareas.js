@@ -23,7 +23,7 @@ const ListadoTareas = () => {
   // proyecto viene como un areglo. Extraigo la pocision uno y la nombro proyectoActual
   const [proyectoActual] = proyecto;
 
-  
+
 
   // Elimina un proyecto
   const onClickEliminar = () => {
@@ -33,18 +33,23 @@ const ListadoTareas = () => {
   return (
     <Fragment>
       <h2>Proyecto: {proyectoActual.nombre}</h2>
-      <ul className="listado-tareas">
-        {tareasProyecto.length === 0
-          ?
-          (<li className="tarea"><p>No hay tareas</p></li>)
-          :
-          tareasProyecto.map(tarea => (
-          <Tarea
-            tarea={tarea}
-          />
-          ))
-        }
-      </ul>
+        <ul className="listado-tareas">
+
+          {tareasProyecto.length === 0
+            ?
+            (<li className="tarea"><p>No hay tareas</p></li>)
+            :
+            tareasProyecto.map(tarea => (
+
+                <Tarea
+                  key={tarea.id}
+                  tarea={tarea}
+                />
+            ))
+          }
+        </ul>
+
+
 
       <button
         type="button"

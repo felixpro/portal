@@ -8,7 +8,10 @@ import {
   TAREAS_PROYECTO,
   AGREGAR_TAREA,
   VALIDAR_TAREA,
-  ELIMINAR_TAREA
+  ELIMINAR_TAREA,
+  ESTADO_TAREA,
+  TAREA_ACTUAL,
+  ACTUALIZAR_TAREA
 } from '../../types';
 
 const TareaState = props => {
@@ -28,7 +31,8 @@ const TareaState = props => {
       {id: 12, nombre: 'Elegir Electronica', estado: false,  proyectoId: 4},
     ],
     tareasProyecto: null,
-    errortarea: false
+    errortarea: false,
+    tareaseleccionada: null
   }
 
 // crear dispath y state
@@ -73,6 +77,32 @@ const eliminarTarea = id => {
   })
 }
 
+// Cambia el estado de cada tarea
+const cambiarEstadoTarea = tarea => {
+  dispath({
+    type: ESTADO_TAREA,
+    payload: tarea
+
+  })
+}
+
+// Extrae una tarea para edición
+const guardarTareaActual = tarea => {
+  dispath({
+    type: TAREA_ACTUAL,
+    payload: tarea
+
+  })
+}
+
+// Edita o modifica una tarea
+const actualizarTarea = tarea => {
+  dispath({
+    type: ACTUALIZAR_TAREA,
+    payload: tarea
+
+  })
+}
 
 return (
   <TareaContext.Provider
@@ -80,10 +110,14 @@ return (
       tareas: state.tareas,
       tareasProyecto: state.tareasProyecto,
       errortarea:state.errortarea,
+      tareaseleccionada: state.tareaseleccionada,
       obtenerTareas,
       agregarTarea,
       validarTarea,
-      eliminarTarea
+      eliminarTarea,
+      cambiarEstadoTarea,
+      guardarTareaActual,
+      actualizarTarea,
 
     }}
     >
