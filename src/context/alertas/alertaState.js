@@ -7,7 +7,7 @@ import {
  } from '../../types'
 
 
-const alertaState = props => {
+const AlertaState = props => {
   const initialState = {
     alerta: null
   }
