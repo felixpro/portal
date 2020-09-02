@@ -12,7 +12,21 @@ CERRAR_SESION,
 
 export default (state, action) => {
   switch(action.type) {
-    
+    case REGISTRO_EXITOSO:
+     localStorage.setItem('token', action.payload.token); // Para que el usuario se mantenga logueado
+      return {
+        ...state,
+        autenticado: true,
+        mensaje: action.payload
+      }
+
+
+    case REGISTRO_ERROR:
+      return {
+        ...state,
+        token: null,
+        mensaje: action.payload
+      }
 
 
     default:
