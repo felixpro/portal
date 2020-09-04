@@ -2,6 +2,8 @@ import React, {useReducer} from 'react';
 import AuthReducer from './authReducer';
 import AuthContext from './authContext';
 import clienteAxios from '../../config/axios';
+import tokenAuth from '../../config/token';
+
 import {
 REGISTRO_EXITOSO,
 REGISTRO_ERROR,
@@ -25,21 +27,56 @@ const AuthState = props => {
 const registrarUsuario = async datos => {
   try {
 
-  const repuesta = await clienteAxios.post('/api/usuarios', datos)
-    console.log(repuesta);
+  const respuesta = await clienteAxios.post('/api/usuarios', datos)
+  console.log(respuesta)
 
     dispatch({
-      type:REGISTRO_EXITOSO
+      type:REGISTRO_EXITOSO,
+      payload: respuesta.data
     })
 
+    // Obtener el usuarios
+    usuarioAutenticado()
+
   } catch (error) {
-    console.log(error)
+    // console.log(error.response.data.msg)
+
+    const alerta = {
+      msg: error.response.data.msg,
+      categoria: 'alerta-error'
+    }
+
     dispatch({
-      type:REGISTRO_ERROR
+      type:REGISTRO_ERROR,
+      payload: alerta
     })
   }
 
 }
+
+// Retorna el usuario autenticado
+const usuarioAutenticado = async () => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    tokenAuth(token)
+  }
+
+  try {
+
+    const respuesta = await clienteAxios.get('/api/auth')
+    // console.log(respuesta)
+    dispatch({
+      type: OBTENER_USUARIO,
+      payload: respuesta.data.usuario
+    })
+  } catch (error) {
+    console.log(error)
+    dispatch({
+      type: LOGIN_ERROR
+    })
+  }
+}
+
 
   return(
     <AuthContext.Provider
