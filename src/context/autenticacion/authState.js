@@ -105,6 +105,13 @@ const iniciarSesion = async datos => {
 
 }
 
+// Cierra la sesion del usuario
+
+const cerrarSesion = () => {
+  dispatch({
+    type: CERRAR_SESION
+  })
+}
 
 
   return(
@@ -115,7 +122,9 @@ const iniciarSesion = async datos => {
         usuario: state.usuario,
         mensaje: state.mensaje,
         registrarUsuario,
-        iniciarSesion
+        iniciarSesion,
+        usuarioAutenticado,
+        cerrarSesion
       }}
       >
       {props.children}
