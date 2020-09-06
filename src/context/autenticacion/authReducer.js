@@ -25,7 +25,8 @@ export default (state, action) => {
         return {
           ...state,
           autenticado:true,
-          usuario: action.payload
+          usuario: action.payload,
+          cargando:false
         }
 
     case CERRAR_SESION:
@@ -37,7 +38,8 @@ export default (state, action) => {
         token: null,
         usuario: null,
         autenticado:null,
-        mensaje: action.payload
+        mensaje: action.payload,
+        cargando:false
       }
 
 
