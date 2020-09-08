@@ -32,7 +32,7 @@ if (proyectos.length === 0) return <p>No hay proyectos, comienza creando uno.</p
       {alerta ? <div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div> :null}
       {proyectos.map(proyecto => (
       <Proyecto
-        key={proyectos.id}
+        key={proyecto._id}
       proyecto={proyecto}
       />
       ))}

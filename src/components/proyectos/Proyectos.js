@@ -9,7 +9,7 @@ const Proyectos = () => {
 
   // Extraer la info de autenticacion
   const authContext = useContext(AuthContext)
-  const {usuarioAutenticado, usuario} =  authContext;
+  const {usuarioAutenticado} =  authContext;
 
   useEffect(() => {
     usuarioAutenticado()

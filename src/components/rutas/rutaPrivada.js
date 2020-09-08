@@ -1,4 +1,4 @@
-import React, {useReducer, useContext, useEffect} from 'react';
+import React, { useContext, useEffect} from 'react';
 import { Route, Redirect} from 'react-router-dom';
 import AuthContext from '../../context/autenticacion/authContext';
 
@@ -23,8 +23,6 @@ const RutaPrivada = ({component: Component, ...props}) => {
       <Component {...props} />
       )}
       >
-
-
     </Route>
   );
 }

@@ -1,4 +1,4 @@
-import React, {Fragment,useContext, useState, useEffect} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import proyectoContext from '../../context/proyectos/proyectoContext';
 import tareaContext from '../../context/tareas/tareaContext';
 
@@ -64,8 +64,7 @@ if (nombre.trim() === '') {
 // Si es edicion o si es nueva tarea
 if (tareaseleccionada === null) {
   // agregar la tarea al state
-  tarea.proyectoId = proyectoActual.id;
-  tarea.estado = false
+  tarea.proyecto = proyectoActual._id;
   agregarTarea(tarea);
 }else {
   // actualizar tarea
